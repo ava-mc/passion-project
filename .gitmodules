@@ -1,0 +1,3 @@
+[submodule "first-expo-app"]
+	path = first-expo-app
+	url = https://github.com/ava-mc/first-expo-app
