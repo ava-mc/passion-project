@@ -1,4 +1,4 @@
-import { View, Text } from "react-native"
+import { View, Text, StyleSheet } from "react-native"
 
 export default function Sender({}){
     return (
@@ -8,3 +8,7 @@ export default function Sender({}){
     )
 
 }
+
+const styles = StyleSheet.create({
+    
+})

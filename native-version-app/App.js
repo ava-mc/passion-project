@@ -6,6 +6,9 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomePage from './pages/HomePage';
 import Sender from './pages/Sender';
 import Receiver from './pages/Receiver';
+import SenderImageChoice from './pages/SenderImageChoice';
+import SenderText from './pages/SenderText';
+import SenderResult from './pages/SenderResult';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +24,21 @@ export default function App() {
         <Stack.Screen
           name="Sender"
           component={Sender}
+          options={{ title: "Send your card" }}
+        />
+        <Stack.Screen
+          name="SenderImageChoice"
+          component={SenderImageChoice}
+          options={{ title: "Choose your image" }}
+        />
+        <Stack.Screen
+          name="SenderText"
+          component={SenderText}
+          options={{ title: "Write your message" }}
+        />
+        <Stack.Screen
+          name="SenderResult"
+          component={SenderResult}
           options={{ title: "Send your card" }}
         />
         <Stack.Screen

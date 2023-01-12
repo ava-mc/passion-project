@@ -8,45 +8,34 @@ export default function HomePage({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainerTop}>
-        <Image
-          source={backgroundTop}
-          // imageStyle={{
-          //   resizeMode: "auto",
-          //   alignSelf: "flex-end",
-          // }}
-          style={styles.image}
-        ></Image>
+        <Image source={backgroundTop} style={styles.image}></Image>
         <Button
           style={{ marginBottom: 20 }}
           theme="light"
           label="I want to send a message"
           onPress={() => {
-            navigation.navigate("Sender");
+            navigation.navigate("SenderImageChoice");
           }}
         ></Button>
       </View>
-      
-        <View style={styles.buttonContainerBottom}>
-            <Image
-        source={backgroundBottom}
-        style={styles.imageBottom}
-      ></Image>
-          <Button
-            style={{ marginTop: 20 }}
-            theme="dark"
-            label="I have received a message"
-            onPress={() => {
-              navigation.navigate("Receiver");
-            }}
-          ></Button>
-        </View>
+
+      <View style={styles.buttonContainerBottom}>
+        <Image source={backgroundBottom} style={styles.imageBottom}></Image>
+        <Button
+          style={{ marginTop: 20 }}
+          theme="dark"
+          label="I have received a message"
+          onPress={() => {
+            navigation.navigate("Receiver");
+          }}
+        ></Button>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
@@ -65,24 +54,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   image: {
-    // flex: 1,
-    // justifyContent: "flex-end",
     width: "100%",
-    // backgroundColor: "red",
-    // flexFlow: 'row',
-    // justifySelf: "flex-end",
     position: "absolute",
     top: "auto",
     bottom: 0,
   },
   imageBottom: {
-    // flex: 1,
-    // justifyContent: "flex-end",
     width: "100%",
-    // flexFlow: 'row',
-    // justifySelf: "flex-end",
     position: "absolute",
     top: 0,
-
   },
 });
