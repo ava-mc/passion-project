@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import Arrow from "../components/Arrow";
 import ArrowContainer from "../components/ArrowContainer";
@@ -16,10 +16,21 @@ export default function SenderText({navigation, route}) {
         initialText = params.message;
     }
     const [message, setMessage] = useState(initialText);
+    const [isEmpty, setIsEmpty] = useState(false);
+
+    useEffect(()=> {
+        if (message) {
+            setIsEmpty(false);
+        }
+        // else {
+        //     setIsEmpty(true);
+        // }
+    }, [message])
   return (
     <View style={styles.container}>
         {/* {params?.image &&<Image source={params.image}></Image>} */}
       <StepTitle number={2} label={'Write your message'}></StepTitle>
+      {isEmpty&&<Text>Please enter some text.</Text>}
       <TextInput changeMessage={setMessage} message={message}></TextInput>
       <ArrowContainer>
         <Arrow
@@ -34,8 +45,13 @@ export default function SenderText({navigation, route}) {
           type="forward"
           disabled={false}
           onPress={() => {
-            params.message = message;
-            navigation.navigate("SenderResult", params);
+            if (message) {
+                params.message = message;
+                navigation.navigate("SenderResult", params);
+            }
+            else {
+                setIsEmpty(true);
+            }
           }}
         ></Arrow>
       </ArrowContainer>
