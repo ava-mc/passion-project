@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     marginTop: "12%",
   },
   number: {
-    fontSize: 100,
+    fontSize: 130,
     letterSpacing: -2,
   },
   label: {
