@@ -1,10 +1,23 @@
 import { View, StyleSheet, ImageBackground, Image } from "react-native";
 import Button from "../components/Button";
+import { Camera, CameraType } from "expo-camera";
 
 const backgroundTop = require("../assets/images/background-top.png");
 const backgroundBottom = require("../assets/images/background-bottom.png");
 
+
+
 export default function HomePage({ navigation }) {
+    const getCameraPermission = async () => {
+      const { status } = await Camera.requestCameraPermissionsAsync();
+      if (status == "granted") {
+        console.log("you can use the camera");
+        navigation.navigate("Receiver");
+      } else {
+        console.log("no camera for you");
+      }
+    };
+    
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainerTop}>
@@ -26,7 +39,8 @@ export default function HomePage({ navigation }) {
           theme="dark"
           label="I have received a message"
           onPress={() => {
-            navigation.navigate("Receiver");
+            getCameraPermission();
+            // navigation.navigate("Receiver");
           }}
         ></Button>
       </View>

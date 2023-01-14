@@ -9,6 +9,7 @@ import Receiver from './pages/Receiver';
 import SenderImageChoice from './pages/SenderImageChoice';
 import SenderText from './pages/SenderText';
 import SenderResult from './pages/SenderResult';
+import ARSystem from './pages/ARSystem';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,11 @@ export default function App() {
           name="Receiver"
           component={Receiver}
           options={{ title: "Receive your card" }}
+        />
+        <Stack.Screen
+          name="ARSystem"
+          component={ARSystem}
+          options={{ title: "View your secret message" }}
         />
       </Stack.Navigator>
       <StatusBar style="light" />
