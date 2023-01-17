@@ -1,0 +1,71 @@
+.container {
+  background-color: var(--color-white);
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.buttonContainerTop {
+  width: 100%;
+  background-color: var(--color-white);
+  height: 50%;
+  justify-content: flex-end;
+  display: flex;
+  flex-flow: row;
+
+  background-image: url('../../assets/images/background-top.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.buttonContainerBottom {
+  width: 100%;
+  background-color: var(--color-black);
+  height: 50%;
+  justify-content: flex-start;
+  display: flex;
+  flex-flow: row;
+
+  background-image: url('../../assets/images/background-bottom.png');
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+.button {
+  text-transform: uppercase;
+  letter-spacing: -2pt;
+  font-size: 1.7rem;
+  padding: .8rem .3rem;
+  width: 85vw;
+  margin: 0 auto;
+  height: max-content;
+  text-align: center;
+}
+
+.buttonTop {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  margin-top: auto;
+  margin-bottom: 3rem;
+}
+
+.buttonBottom {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  margin-bottom: auto;
+  margin-top: 3rem;
+}
+
+.image {
+  width: 100%;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
+
+.imagebottom {
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
