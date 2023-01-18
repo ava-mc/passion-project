@@ -14,7 +14,7 @@
   display: flex;
   flex-flow: row;
 
-  background-image: url('../../assets/images/background-top.png');
+  background-image: url('../../public/assets/images/background-top.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
@@ -27,7 +27,7 @@
   display: flex;
   flex-flow: row;
 
-  background-image: url('../../assets/images/background-bottom.png');
+  background-image: url('../../public/assets/images/background-bottom.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
 }
