@@ -4,13 +4,16 @@ import { Router, useRouter } from "next/router";
 import Title from "@/components/Title";
 // import { QrReader } from "react-qr-reader";
 // import QrReader from "react-qr-scanner";
-import QrReader from "modern-react-qr-reader";
+// import QrReader from "modern-react-qr-reader";
 import Head from "next/head";
 import styles from '@/styles/Receiver.module.css';
 
-// import { Camera } from "react-camera-pro";
-// import queryString from "query-string";
 
+import dynamic from "next/dynamic";
+
+const NoSSRQrScanner = dynamic(() => import("../components/QrScanner"), {
+  ssr: false,
+});
 
 
 
@@ -52,7 +55,7 @@ export default function Receiver({}){
     setScanResult(data);
     console.log(data);
     if (data){
-      const parsed = queryString.parseUrl(data.text);
+      const parsed = queryString.parseUrl(data);
       console.log(parsed.query);
       if (parsed.query?.image&&parsed.query?.message) {
         router.push({pathname:'ARSystem', query: {...parsed.query}});
@@ -119,14 +122,18 @@ export default function Receiver({}){
           />
           <p>{scanResult}</p> */}
           {/* <Camera /> */}
-          {loaded && (
+          {/* {loaded && (
             <QrReader
               facingMode={"environment"}
               className={styles.camera}
               onError={handleError}
               onScan={handleScan}
             />
-          )}
+          )} */}
+          <NoSSRQrScanner
+            handleError={handleError}
+            handleScan={handleScan}
+          ></NoSSRQrScanner>
           {/* <p>{scanResult?.text}</p> */}
           <p className={styles.text}>
             Scan the QR code on the back of your card.
