@@ -4,7 +4,7 @@ import { Router, useRouter } from "next/router";
 import Title from "@/components/Title";
 // import { QrReader } from "react-qr-reader";
 // import QrReader from "react-qr-scanner";
-import QrReader from "modern-react-qr-scanner";
+import QrReader from "modern-react-qr-reader";
 import Head from "next/head";
 import styles from '@/styles/Receiver.module.css';
 
