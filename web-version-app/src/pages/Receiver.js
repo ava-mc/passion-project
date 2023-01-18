@@ -120,7 +120,7 @@ export default function Receiver({}){
           {/* <Camera /> */}
           {loaded && (
             <QrReader
-              facingMode="rear"
+              facingMode="environment"
               className={styles.camera}
               onError={handleError}
               onScan={handleScan}
