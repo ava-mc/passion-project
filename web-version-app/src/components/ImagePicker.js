@@ -1,6 +1,3 @@
-// import { HorizontalPicker } from "@vseslav/react-native-horizontal-picker";
-import { useState } from "react";
-// import { View, Image, ScrollView, StyleSheet, Pressable } from "react-native";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import styles from "@/styles/ImagePicker.module.css";
 import Image from "next/image";

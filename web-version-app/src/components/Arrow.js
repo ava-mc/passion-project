@@ -1,6 +1,3 @@
-// import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-// import { Pressable } from "react-native";
-// import Icon from "@mui/material/Icon";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 

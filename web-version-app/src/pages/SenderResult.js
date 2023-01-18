@@ -12,7 +12,7 @@ import QRCode from "qrcode";
 
 export default function SenderResult({ }) {
   const router = useRouter();
-  const receiverPage = 'Receiver';
+  const receiverPage = 'ARSystem';
   const [params, setParams] = useState({});
 
   const [qrData, setQrData] = useState(null);

@@ -12,6 +12,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.5",
     "@next/font": "13.1.2",
     "@react-pdf/renderer": "^3.0.2",
     "eslint": "8.32.0",
@@ -21,8 +22,13 @@
     "qrcode-base64": "^1.0.1",
     "query-string": "^8.1.0",
     "react": "18.2.0",
+    "react-camera-pro": "^1.2.1",
     "react-dom": "18.2.0",
     "react-horizontal-scrolling-menu": "^3.2.3",
-    "react-qr-code": "^2.0.11"
+    "react-qr-code": "^2.0.11",
+    "react-qr-reader": "^3.0.0-beta-1",
+    "react-qr-scanner": "^1.0.0-alpha.11",
+    "styled-components": "^5.3.6",
+    "webrtc-adapter": "^8.2.0"
   }
 }

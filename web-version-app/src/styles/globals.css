@@ -88,6 +88,7 @@ body {
   overflow-x: hidden;
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
+  background-color: var(--color-white);
 }
 
 a {

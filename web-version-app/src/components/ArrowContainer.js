@@ -1,4 +1,3 @@
-// import { View, StyleSheet } from "react-native";
 import styles from '@/styles/ArrowContainer.module.css';
 
 export default function ArrowContainer({children}) {
