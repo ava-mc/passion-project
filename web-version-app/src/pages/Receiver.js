@@ -51,7 +51,7 @@ export default function Receiver({}){
   const handleScan=(data)=>{
     setScanResult(data);
     console.log(data);
-    if (data?.text){
+    if (data){
       const parsed = queryString.parseUrl(data.text);
       console.log(parsed.query);
       if (parsed.query?.image&&parsed.query?.message) {
