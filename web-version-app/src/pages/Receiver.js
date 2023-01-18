@@ -118,9 +118,18 @@ export default function Receiver({}){
           />
           <p>{scanResult}</p> */}
           {/* <Camera /> */}
-          {loaded && <QrReader className={styles.camera} onError={handleError} onScan={handleScan} />}
+          {loaded && (
+            <QrReader
+              facingMode="rear"
+              className={styles.camera}
+              onError={handleError}
+              onScan={handleScan}
+            />
+          )}
           {/* <p>{scanResult?.text}</p> */}
-          <p className={styles.text}>Scan the QR code on the back of your card.</p>
+          <p className={styles.text}>
+            Scan the QR code on the back of your card.
+          </p>
         </div>
       </>
     );
