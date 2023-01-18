@@ -3,7 +3,8 @@ import queryString from "query-string";
 import { Router, useRouter } from "next/router";
 import Title from "@/components/Title";
 // import { QrReader } from "react-qr-reader";
-import QrReader from "react-qr-scanner";
+// import QrReader from "react-qr-scanner";
+import QrReader from "modern-react-qr-scanner";
 import Head from "next/head";
 import styles from '@/styles/Receiver.module.css';
 
@@ -120,7 +121,7 @@ export default function Receiver({}){
           {/* <Camera /> */}
           {loaded && (
             <QrReader
-              facingMode="environment"
+              facingMode={"environment"}
               className={styles.camera}
               onError={handleError}
               onScan={handleScan}
