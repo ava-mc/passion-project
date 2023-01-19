@@ -3,6 +3,7 @@ import { ARCanvas, ARMarker } from "@artcom/react-three-arjs";
 const ARTest = ({}) => {
     return (
         <ARCanvas
+        style={{zIndex:10}}
     camera={ { position: [0, 0, 0] } }
     onCreated={ ({ gl }) => {
       gl.setSize(window.innerWidth, window.innerHeight)

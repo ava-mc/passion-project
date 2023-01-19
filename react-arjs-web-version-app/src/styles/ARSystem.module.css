@@ -9,3 +9,15 @@
     width: 80vw;
     margin: 2rem auto;
 }
+
+/* body {
+ background-color: transparent;
+} */
+
+.main {
+    background-color: transparent;
+}
+
+#arjs-video {
+    z-index: 10;
+}
