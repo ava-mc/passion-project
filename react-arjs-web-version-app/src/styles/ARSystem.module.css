@@ -1,0 +1,11 @@
+.image {
+    width: 80vw;
+    height: 80vw;
+    margin: 2rem auto;
+}
+
+.text {
+    font-size: 1.5rem;
+    width: 80vw;
+    margin: 2rem auto;
+}

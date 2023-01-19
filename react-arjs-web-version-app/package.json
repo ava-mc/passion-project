@@ -1,0 +1,40 @@
+{
+  "name": "web-version-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ar-js-org/ar.js": "^3.4.3",
+    "@artcom/react-three-arjs": "^0.5.2",
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "^5.11.5",
+    "@next/font": "13.1.2",
+    "@react-pdf/renderer": "^3.0.2",
+    "@react-three/fiber": "^8.10.0",
+    "core-js": "^3.27.2",
+    "eslint": "8.32.0",
+    "eslint-config-next": "13.1.2",
+    "modern-react-qr-reader": "^1.0.12",
+    "next": "13.1.2",
+    "qrcode": "^1.5.1",
+    "qrcode-base64": "^1.0.1",
+    "query-string": "^8.1.0",
+    "react": "18.2.0",
+    "react-camera-pro": "^1.2.1",
+    "react-dom": "18.2.0",
+    "react-horizontal-scrolling-menu": "^3.2.3",
+    "react-qr-code": "^2.0.11",
+    "react-qr-reader": "^3.0.0-beta-1",
+    "react-qr-scanner": "^1.0.0-alpha.11",
+    "styled-components": "^5.3.6",
+    "three": "^0.148.0",
+    "webrtc-adapter": "^8.2.0"
+  }
+}

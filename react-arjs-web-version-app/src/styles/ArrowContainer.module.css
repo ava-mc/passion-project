@@ -1,0 +1,8 @@
+.arrowContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    justify-content: space-between;
+    margin: auto;
+    margin-top: 5vh;
+  }
