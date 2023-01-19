@@ -1,0 +1,14 @@
+.container {
+        background-color: var(--color-white);
+        height: 100%;
+        width: 100%;
+    }
+
+    .input {
+        width: 60vw;
+        display: block;
+        margin: 0 auto;
+        height: 30vw;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 1.5rem;
+    }
