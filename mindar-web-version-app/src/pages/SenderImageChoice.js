@@ -10,8 +10,11 @@ import { useEffect } from "react";
 
 
 const imageArray = [
-  "/assets/images/background-bottom.png",
-  "/assets/images/background-top.png",
+  "/assets/tracking/tracking-1.png",
+  "/assets/tracking/tracking-2.png",
+  "/assets/tracking/tracking-3.png",
+  "/assets/tracking/tracking-4.png",
+  "/assets/tracking/tracking-5.png",
 ];
 
 export default function SenderImageChoice({}) {

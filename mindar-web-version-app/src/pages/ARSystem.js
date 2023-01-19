@@ -4,6 +4,12 @@ import Image from "next/image";
 import Head from "next/head";
 import Title from "@/components/Title";
 import styles from'@/styles/ARSystem.module.css';
+// import ARTest from "@/components/ARTest";
+import dynamic from "next/dynamic";
+
+const NoSSRARTest = dynamic(() => import("../components/ARTest"), {
+  ssr: false,
+});
 
 // import { Image, Text, View } from "react-native";
 export default function ARSystem({}) {
@@ -26,10 +32,12 @@ export default function ARSystem({}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Title></Title>
-      <div>
+      {/* <div>
       {params?.image && <Image className={styles.image} src={params.image} width={200} height={200} alt={'Chosen image base for image tracking.'}></Image>}
         {params?.message && <p className={styles.text}>{params.message}</p>}
-      </div>
+      </div> */}
+      {/* <ARTest></ARTest> */}
+      <NoSSRARTest></NoSSRARTest>
       </>
     );
 }
