@@ -1,4 +1,4 @@
-import { ARCanvas, ARMarker, ARNft } from "@artcom/react-three-arjs";
+import { ARCanvas, ARMarker} from "@artcom/react-three-arjs";
 
 const ARTest = ({}) => {
   return (
@@ -11,7 +11,12 @@ const ARTest = ({}) => {
     >
       <ambientLight />
       <pointLight position={[10, 10, 0]} />
-      <ARMarker type={"pattern"} patternUrl={"data/hiro.patt"}>
+      <ARMarker
+        type={"pattern"}
+        patternUrl={"data/pattern-test-2.patt"}
+        onMarkerfound={() => console.log("found marker")}
+        onMarkerlost={() => console.log("lost marker")}
+      >
         <mesh>
           <boxGeometry args={[1, 1, 1]} />
           <meshStandardMaterial color={"green"} />
