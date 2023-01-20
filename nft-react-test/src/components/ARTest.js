@@ -20,7 +20,7 @@ const ARTest = () => {
           <a-nft
             samplehandler
             type="nft"
-            url="/assets/nft/nft-test-1"
+            url="https://followthedarkside.github.io/arjs-image-tracking-sample/resources/nft/ramen-1000px"
             smooth="true"
             smoothCount="10"
             smoothTolerance="0.01"
