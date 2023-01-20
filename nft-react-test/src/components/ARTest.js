@@ -20,7 +20,7 @@ AFRAME.registerComponent('samplehandler', {
 
 AFRAME.registerComponent('modify-materials', {
     init: function () {
-        let tex = new THREE.TextureLoader().load('../resources/Map-COL.jpg');
+        let tex = new THREE.TextureLoader().load('/assets/Map-COL.jpg');
 
         // Wait for model to load.
         this.el.addEventListener('model-loaded', () => {
@@ -52,8 +52,8 @@ const ARTest = () => {
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'
     >
         <a-assets>
-            <a-asset-item id="model" src="assets/LeePerrySmith.glb"></a-asset-item>
-            <img id="tex-image" src="assets/Map-COL.jpg"></img>
+            <a-asset-item id="model" src="/assets/LeePerrySmith.glb"></a-asset-item>
+            <img id="tex-image" src="/assets/Map-COL.jpg"></img>
         </a-assets>
         <a-nft
             samplehandler 
