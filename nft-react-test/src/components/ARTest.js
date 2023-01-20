@@ -27,7 +27,7 @@ const ARTest = () => {
             smoothThreshold="5"
           >
             <a-entity
-              gltf-model="/assets/final.glb"
+              gltf-model="/assets/LeePerrySmith.glb"
               scale="5 5 5"
               position="50 150 0"
             ></a-entity>
