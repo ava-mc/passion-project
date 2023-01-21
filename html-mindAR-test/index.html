@@ -18,11 +18,14 @@
 
             //check if a specific target image is chosen
             if (params.get('image')) {
-                trackingImage = trackingImages[params.get('image')];
+                // trackingImage = trackingImages[params.get('image')];
+                trackingImage = params.get('image');
                 console.log(trackingImage);
             }
             else {
-                trackingImage = trackingImages[0];
+                // trackingImage = trackingImages[0];
+                trackingImage = 0;
+
             }
 
 
@@ -36,9 +39,14 @@
             }
             window.addEventListener('DOMContentLoaded', (event) => {
                 // choose target image
-                 const $target = document.getElementById('tracking-image'); 
-                console.log($target);
-                $target.setAttribute('mindar-image', `imageTargetSrc: assets/custom/${trackingImage}.mind`);
+                //  const $target = document.getElementById('tracking-image'); 
+                // console.log($target);
+                // $target.setAttribute('mindar-image', `imageTargetSrc: assets/custom/${trackingImage}.mind`);
+
+                //using multitracking to select the target thrgouh the index
+                const $target = document.getElementById('target'); 
+                $target.setAttribute('mindar-image-target', `targetIndex: ${trackingImage}`);
+
 
                 //choose 3D model
                 const $model = document.getElementById('avatarModel'); 
@@ -51,7 +59,7 @@
     </script>
   </head>
   <body>
-    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/lego.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/multi.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
         <a-asset-item id="avatarModel-0" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
@@ -59,7 +67,7 @@
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity mindar-image-target="targetIndex: 0">
+      <a-entity id="target" mindar-image-target="targetIndex: 0">
         <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
         <a-gltf-model id="avatarModel" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
