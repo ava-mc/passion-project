@@ -64,6 +64,12 @@
                 const $exampleImage =  document.getElementById('example-image'); 
                 $exampleImage.setAttribute('src', `assets/img/${trackingImages[trackingImage]}.png`);
 
+                const $image = document.getElementById(`image-${trackingImage}`);
+                const ratio = $image.height/$image.width;
+                const $overlayImage =  document.getElementById('overlay-image'); 
+                $overlayImage.setAttribute('src', `#image-${trackingImage}`);
+                $overlayImage.setAttribute('height', `${ratio}`);
+
 
                 //choose 3D model
                 const $model = document.getElementById('avatarModel'); 
@@ -83,7 +89,7 @@
     </script>
     <style>
         #example-image {
-            width: 50vw;
+            width: 70vw;
             height: auto;
             opacity: .5;
             position: absolute;
@@ -103,13 +109,15 @@
     <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/multi.mind; uiScanning: #example-image" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
+        <img id="image-0" src="assets/img/lego.png" />
+        <img id="image-1" src="assets/img/question.png"/>
         <a-asset-item id="avatarModel-0" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
         <a-asset-item id="avatarModel-1" src="assets/Buggy0.gltf"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity id="target" mindar-image-target="targetIndex: 0">
-        <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
+        <a-plane id="overlay-image" src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
          <!-- <a-text wrapCount="20" value="My very long text example My very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text example" color="red" backgroundColor align="center" width=".5" position="0.4 .4 0.4" text=""></a-text> -->
         <a-gltf-model id="avatarModel" rotation="0 0 0 " position="-0.2 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-gltf-model>
        <a-entity
