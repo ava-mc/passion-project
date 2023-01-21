@@ -3,6 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.0/dist/mindar-image-aframe.prod.js"></script>
+
+    <!-- <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>  -->
     <script>
         // const models =['https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf','assets/Buggy0.gltf'];
         // const models= ['#avatarModel-0']
@@ -10,6 +12,9 @@
 
         let chosenModel;
         let trackingImage;
+        let message;
+        const width = 1;
+        const wrapCount = 20;
 
         const init = ()=> {
             const url = window.location.search;
@@ -25,7 +30,6 @@
             else {
                 // trackingImage = trackingImages[0];
                 trackingImage = 0;
-
             }
 
 
@@ -37,6 +41,16 @@
             else {
                 chosenModel = 0;
             }
+
+            //custom message
+            if (params.get('message')) {
+                message = params.get('message');
+                console.log(message);
+            }
+            else {
+                message = 'write your own message';
+            }
+
             window.addEventListener('DOMContentLoaded', (event) => {
                 // choose target image
                 //  const $target = document.getElementById('tracking-image'); 
@@ -53,6 +67,13 @@
                 console.log($model);
                 // $model.setAttribute('src', models[chosenModel]);
                 $model.setAttribute('src', `#avatarModel-${chosenModel}`);
+
+                //set your message text
+                const $text = document.getElementById('text'); 
+                console.log($text);
+                // $model.setAttribute('src', models[chosenModel]);
+                $text.setAttribute('text', `width: ${width}; value: ${message}; wrapCount: ${wrapCount}; align: center`);
+
             })
         };
         init();
@@ -69,8 +90,16 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity id="target" mindar-image-target="targetIndex: 0">
         <a-plane src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-        <a-gltf-model id="avatarModel" rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
-      </a-entity>
+         <!-- <a-text wrapCount="20" value="My very long text example My very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text example" color="red" backgroundColor align="center" width=".5" position="0.4 .4 0.4" text=""></a-text> -->
+        <a-gltf-model id="avatarModel" rotation="0 0 0 " position="-0.2 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-gltf-model>
+       <a-entity
+       id="text"
+  geometry="primitive: plane; height: auto; width: auto"
+  material="color: blue"
+  position="0.4 .4 0.4"
+  text="width: 1; value: Choose your message; wrapCount: 20; align: center"></a-entity>
+        <!-- <a-entity text-geometry="value: THIS IS MY TEXT TEST HERE WAAAAAAA"></a-entity> -->
+    </a-entity>
     </a-scene>
   </body>
 </html>
