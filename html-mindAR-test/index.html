@@ -61,6 +61,9 @@
                 const $target = document.getElementById('target'); 
                 $target.setAttribute('mindar-image-target', `targetIndex: ${trackingImage}`);
 
+                const $exampleImage =  document.getElementById('example-image'); 
+                $exampleImage.setAttribute('src', `assets/img/${trackingImages[trackingImage]}.png`);
+
 
                 //choose 3D model
                 const $model = document.getElementById('avatarModel'); 
@@ -78,9 +81,26 @@
         };
         init();
     </script>
+    <style>
+        #example-image {
+            width: 50vw;
+            height: auto;
+            opacity: .5;
+            position: absolute;
+            left: 50vw;
+            top: 50vh;
+            transform: translate(-50%, -50%);
+      }
+      #example-image.hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/multi.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+
+    <img id="example-image" class="hidden" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
+
+    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/multi.mind; uiScanning: #example-image" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
         <a-asset-item id="avatarModel-0" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
@@ -96,7 +116,7 @@
        id="text"
   geometry="primitive: plane; height: auto; width: auto"
   material="color: blue"
-  position="0.4 .4 0.4"
+  position="0 .4 0.4"
   text="width: 1; value: Choose your message; wrapCount: 20; align: center"></a-entity>
         <!-- <a-entity text-geometry="value: THIS IS MY TEXT TEST HERE WAAAAAAA"></a-entity> -->
     </a-entity>
