@@ -6,23 +6,41 @@
     <script>
         // const models =['https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf','assets/Buggy0.gltf'];
         // const models= ['#avatarModel-0']
+        const trackingImages = ['lego', 'question'];
+
         let chosenModel;
+        let trackingImage;
+
         const init = ()=> {
             const url = window.location.search;
             console.log(url);
             let params= new URLSearchParams(url);
-            // console.log(params.get('model'));
-            let entries = params.entries();
-            console.log(Object.fromEntries(entries));
-            console.log(params.get('model'));
+
+            //check if a specific target image is chosen
+            if (params.get('image')) {
+                trackingImage = trackingImages[params.get('image')];
+                console.log(trackingImage);
+            }
+            else {
+                trackingImage = trackingImages[0];
+            }
+
+
+            //check if a specific 3D model is chosen
             if (params.get('model')) {
                 chosenModel = params.get('model');
-                // const $model = document.getElementById('avatarModel'); 
+                console.log(chosenModel);
             }
             else {
                 chosenModel = 0;
             }
             window.addEventListener('DOMContentLoaded', (event) => {
+                // choose target image
+                 const $target = document.getElementById('tracking-image'); 
+                console.log($target);
+                $target.setAttribute('mindar-image', `imageTargetSrc: assets/custom/${trackingImage}.mind`);
+
+                //choose 3D model
                 const $model = document.getElementById('avatarModel'); 
                 console.log($model);
                 // $model.setAttribute('src', models[chosenModel]);
@@ -33,7 +51,7 @@
     </script>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/lego.mind" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
         <a-asset-item id="avatarModel-0" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
