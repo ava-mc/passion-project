@@ -6,96 +6,103 @@
 
     <!-- <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>  -->
     <script>
-        // const models =['https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf','assets/Buggy0.gltf'];
-        // const models= ['#avatarModel-0']
-        const trackingImages = ['lego', 'question'];
+      // const models =['https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf','assets/Buggy0.gltf'];
+      // const models= ['#avatarModel-0']
+      const trackingImages = ["lego", "question"];
 
-        let chosenModel;
-        let trackingImage;
-        let message;
-        const width = 1;
-        const wrapCount = 20;
+      let chosenModel;
+      let trackingImage;
+      let message;
+      const width = 1;
+      const wrapCount = 20;
 
-        const init = ()=> {
-            const url = window.location.search;
-            console.log(url);
-            let params= new URLSearchParams(url);
+      const init = () => {
+        const url = window.location.search;
+        console.log(url);
+        let params = new URLSearchParams(url);
 
-            //check if a specific target image is chosen
-            if (params.get('image')) {
-                // trackingImage = trackingImages[params.get('image')];
-                trackingImage = params.get('image');
-                console.log(trackingImage);
-            }
-            else {
-                // trackingImage = trackingImages[0];
-                trackingImage = 0;
-            }
+        //check if a specific target image is chosen
+        if (params.get("image")) {
+          // trackingImage = trackingImages[params.get('image')];
+          trackingImage = params.get("image");
+          console.log(trackingImage);
+        } else {
+          // trackingImage = trackingImages[0];
+          trackingImage = 0;
+        }
 
+        //check if a specific 3D model is chosen
+        if (params.get("model")) {
+          chosenModel = params.get("model");
+          console.log(chosenModel);
+        } else {
+          chosenModel = 0;
+        }
 
-            //check if a specific 3D model is chosen
-            if (params.get('model')) {
-                chosenModel = params.get('model');
-                console.log(chosenModel);
-            }
-            else {
-                chosenModel = 0;
-            }
+        //custom message
+        if (params.get("message")) {
+          message = params.get("message");
+          console.log(message);
+        } else {
+          message = "write your own message";
+        }
 
-            //custom message
-            if (params.get('message')) {
-                message = params.get('message');
-                console.log(message);
-            }
-            else {
-                message = 'write your own message';
-            }
+        window.addEventListener("DOMContentLoaded", (event) => {
+          // choose target image
+          //  const $target = document.getElementById('tracking-image');
+          // console.log($target);
+          // $target.setAttribute('mindar-image', `imageTargetSrc: assets/custom/${trackingImage}.mind`);
 
-            window.addEventListener('DOMContentLoaded', (event) => {
-                // choose target image
-                //  const $target = document.getElementById('tracking-image'); 
-                // console.log($target);
-                // $target.setAttribute('mindar-image', `imageTargetSrc: assets/custom/${trackingImage}.mind`);
+          //using multitracking to select the target thrgouh the index
+          const $target = document.getElementById("target");
+          $target.setAttribute(
+            "mindar-image-target",
+            `targetIndex: ${trackingImage}`
+          );
 
-                //using multitracking to select the target thrgouh the index
-                const $target = document.getElementById('target'); 
-                $target.setAttribute('mindar-image-target', `targetIndex: ${trackingImage}`);
+          const $exampleImage = document.getElementById("example-image");
+          $exampleImage.setAttribute(
+            "src",
+            `assets/img/${trackingImages[trackingImage]}.png`
+          );
 
-                const $exampleImage =  document.getElementById('example-image'); 
-                $exampleImage.setAttribute('src', `assets/img/${trackingImages[trackingImage]}.png`);
+          //choose 3D model
+          const $model = document.getElementById("avatarModel");
+          console.log($model);
+          // $model.setAttribute('src', models[chosenModel]);
+          $model.setAttribute("src", `#avatarModel-${chosenModel}`);
 
-                const $image = document.getElementById(`image-${trackingImage}`);
-                const ratio = $image.height/$image.width;
-                const $overlayImage =  document.getElementById('overlay-image'); 
-                $overlayImage.setAttribute('src', `#image-${trackingImage}`);
-                $overlayImage.setAttribute('height', `${ratio}`);
+          //set your message text
+          const $text = document.getElementById("text");
+          console.log($text);
+          // $model.setAttribute('src', models[chosenModel]);
+          $text.setAttribute(
+            "text",
+            `width: ${width}; value: ${message}; wrapCount: ${wrapCount}; align: center`
+          );
+        });
 
-
-                //choose 3D model
-                const $model = document.getElementById('avatarModel'); 
-                console.log($model);
-                // $model.setAttribute('src', models[chosenModel]);
-                $model.setAttribute('src', `#avatarModel-${chosenModel}`);
-
-                //set your message text
-                const $text = document.getElementById('text'); 
-                console.log($text);
-                // $model.setAttribute('src', models[chosenModel]);
-                $text.setAttribute('text', `width: ${width}; value: ${message}; wrapCount: ${wrapCount}; align: center`);
-
-            })
-        };
-        init();
+        window.addEventListener("load", () => {
+          const $image = document.getElementById(`image-${trackingImage}`);
+          const ratio = $image.height / $image.width;
+          console.log($image.height, $image.width);
+          console.log(ratio);
+          const $overlayImage = document.getElementById("overlay-image");
+          $overlayImage.setAttribute("src", `#image-${trackingImage}`);
+          $overlayImage.setAttribute("height", `${ratio}`);
+        });
+      };
+      init();
     </script>
     <style>
-        #example-image {
-            width: 70vw;
-            height: auto;
-            opacity: .5;
-            position: absolute;
-            left: 50vw;
-            top: 50vh;
-            transform: translate(-50%, -50%);
+      #example-image {
+        width: 70vw;
+        height: auto;
+        opacity: 0.5;
+        position: absolute;
+        left: 50vw;
+        top: 50vh;
+        transform: translate(-50%, -50%);
       }
       #example-image.hidden {
         display: none;
@@ -103,31 +110,65 @@
     </style>
   </head>
   <body>
+    <img
+      id="example-image"
+      class="hidden"
+      src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png"
+    />
 
-    <img id="example-image" class="hidden" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
-
-    <a-scene id="tracking-image" mindar-image="imageTargetSrc: assets/custom/multi.mind; uiScanning: #example-image" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene
+      id="tracking-image"
+      mindar-image="imageTargetSrc: assets/custom/multi.mind; uiScanning: #example-image"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
       <a-assets>
-        <img id="card" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png" />
+        <img
+          id="card"
+          src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/card.png"
+        />
         <img id="image-0" src="assets/img/lego.png" />
-        <img id="image-1" src="assets/img/question.png"/>
-        <a-asset-item id="avatarModel-0" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
-        <a-asset-item id="avatarModel-1" src="assets/Buggy0.gltf"></a-asset-item>
+        <img id="image-1" src="assets/img/question.png" />
+        <a-asset-item
+          id="avatarModel-0"
+          src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.0/examples/image-tracking/assets/card-example/softmind/scene.gltf"
+        ></a-asset-item>
+        <a-asset-item
+          id="avatarModel-1"
+          src="assets/Buggy0.gltf"
+        ></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
       <a-entity id="target" mindar-image-target="targetIndex: 0">
-        <a-plane id="overlay-image" src="#card" position="0 0 0" height="0.552" width="1" rotation="0 0 0"></a-plane>
-         <!-- <a-text wrapCount="20" value="My very long text example My very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text example" color="red" backgroundColor align="center" width=".5" position="0.4 .4 0.4" text=""></a-text> -->
-        <a-gltf-model id="avatarModel" rotation="0 0 0 " position="-0.2 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-gltf-model>
-       <a-entity
-       id="text"
-  geometry="primitive: plane; height: auto; width: auto"
-  material="color: blue"
-  position="0 .4 0.4"
-  text="width: 1; value: Choose your message; wrapCount: 20; align: center"></a-entity>
+        <a-plane
+          id="overlay-image"
+          src="#card"
+          position="0 0 0"
+          height="0.552"
+          width="1"
+          rotation="0 0 0"
+        ></a-plane>
+        <!-- <a-text wrapCount="20" value="My very long text example My very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text exampleMy very long text example" color="red" backgroundColor align="center" width=".5" position="0.4 .4 0.4" text=""></a-text> -->
+        <a-gltf-model
+          id="avatarModel"
+          rotation="0 0 0 "
+          position="-0.2 0 0.1"
+          scale="0.005 0.005 0.005"
+          src="#avatarModel"
+          animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"
+        ></a-gltf-model>
+        <a-entity
+          id="text"
+          geometry="primitive: plane; height: auto; width: auto"
+          material="color: blue"
+          position="0 .4 0.4"
+          text="width: 1; value: Choose your message; wrapCount: 20; align: center"
+        ></a-entity>
         <!-- <a-entity text-geometry="value: THIS IS MY TEXT TEST HERE WAAAAAAA"></a-entity> -->
-    </a-entity>
+      </a-entity>
     </a-scene>
   </body>
 </html>
