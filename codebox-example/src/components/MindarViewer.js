@@ -1,19 +1,24 @@
-import React, { useEffect, useRef } from 'react';
-import {PropTypes} from "prop-types";
+import React, { useEffect, useRef, useState } from "react";
+import { PropTypes } from "prop-types";
 
-const MindarViewer = ({model, target, text}) => {
+const MindarViewer = ({ model, target, text }) => {
   const sceneRef = useRef(null);
   console.log(model, target, text);
+
+  const image0Ref = useRef(null);
+  const image1Ref = useRef(null);
+
+  const [imageDimensions, setImageDimensions] = useState([]);
 
   useEffect(() => {
     const sceneEl = sceneRef.current;
     const arSystem = sceneEl.systems["mindar-image-system"];
-    sceneEl.addEventListener('renderstart', () => {
-      arSystem.start(); // start AR 
+    sceneEl.addEventListener("renderstart", () => {
+      arSystem.start(); // start AR
     });
     return () => {
       arSystem.stop();
-    }
+    };
   }, []);
 
   return (
@@ -27,8 +32,32 @@ const MindarViewer = ({model, target, text}) => {
       device-orientation-permission-ui="enabled: false"
     >
       <a-assets>
-        <img alt="example" id="image-0" src="assets/img/lego.png" />
-        <img alt="example" id="image-1" src="assets/img/question.png" />
+        <img
+          ref={image0Ref}
+          alt="example"
+          id="image-0"
+          src="assets/img/lego.png"
+          onLoad={() => {
+            const image = image0Ref.current;
+            const copyArray = [...imageDimensions];
+            copyArray[0] = image.height / image.width;
+            console.log(copyArray);
+            setImageDimensions(copyArray);
+          }}
+        />
+        <img
+          ref={image1Ref}
+          alt="example"
+          id="image-1"
+          src="assets/img/question.png"
+          onLoad={() => {
+            const image = image1Ref.current;
+            const copyArray = [...imageDimensions];
+            copyArray[1] = image.height / image.width;
+            console.log(copyArray);
+            setImageDimensions(copyArray);
+          }}
+        />
         {/* <img
           alt="example"
           id="image-2"
@@ -51,7 +80,7 @@ const MindarViewer = ({model, target, text}) => {
           id="overlay-image"
           src={`#image-${target}`}
           position="0 0 0"
-          height="0.552"
+          height={imageDimensions[target]}
           width="1"
           rotation="0 0 0"
         ></a-plane>
@@ -73,7 +102,7 @@ const MindarViewer = ({model, target, text}) => {
       </a-entity>
     </a-scene>
   );
-}
+};
 
 MindarViewer.propTypes = {
   model: PropTypes.number,
@@ -81,14 +110,10 @@ MindarViewer.propTypes = {
   text: PropTypes.string,
 };
 
-
 MindarViewer.defaultProps = {
   model: 0,
   target: 0,
-  text: 'Choose your message',
+  text: "Choose your message",
 };
 
-
 export default MindarViewer;
-
-
