@@ -10,6 +10,8 @@ import PdfFile from "@/components/PdfFile";
 
 import QRCode from "qrcode";
 
+const imageUrl = '/assets/custom/marker-'
+
 export default function SenderResult({ }) {
   const router = useRouter();
   const receiverPage = 'ARSystem';
@@ -60,7 +62,8 @@ export default function SenderResult({ }) {
             <div className={styles.imageContainer}>
               <Image
                 className={styles.image}
-                src={params.image}
+                // src={params.image}
+                src={`${imageUrl}${params.image}.png`}
                 width={200}
                 height={200}
                 alt={"Chosen tracking image"}
@@ -72,7 +75,10 @@ export default function SenderResult({ }) {
             {params?.image && qrData && (
               <PDFDownloadLink
                 className={styles.download}
-                document={<PdfFile img={params.image} qr={qrData} />}
+                document={<PdfFile 
+                  // img={params.image}
+                  img={`${imageUrl}${params.image}.png`}
+                  qr={qrData} />}
                 fileName="mystery-mail.pdf"
               >
                 {({ blob, url, loading, error }) =>

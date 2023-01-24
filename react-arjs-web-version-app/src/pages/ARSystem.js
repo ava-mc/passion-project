@@ -39,7 +39,7 @@ export default function ARSystem({}) {
       {params?.image && <Image className={styles.image} src={params.image} width={200} height={200} alt={'Chosen image base for image tracking.'}></Image>}
         {params?.message && <p className={styles.text}>{params.message}</p>}
       </div> */}
-          <NoSSRARTest></NoSSRARTest>
+          <NoSSRARTest message={params?.message?params.message:'Choose your message'} image={params?.image?params.image:0}></NoSSRARTest>
         </main>
       </>
     );

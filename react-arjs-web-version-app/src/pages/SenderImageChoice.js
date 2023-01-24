@@ -10,12 +10,14 @@ import { useEffect } from "react";
 
 
 const imageArray = [
-  "/assets/images/background-bottom.png",
-  "/assets/images/background-top.png",
+  "/assets/custom/marker-0.png",
+  "/assets/custom/marker-1.png",
+  "/assets/custom/marker-2.png",
 ];
 
 export default function SenderImageChoice({}) {
-    const [selectedImage, setSelectedImage] = useState(null);
+    // const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
      const router = useRouter();
      const [params, setParams] = useState({});
 
@@ -25,25 +27,37 @@ export default function SenderImageChoice({}) {
        setParams(router.query);
        if (router.query?.image) {
         console.log('i have an image', router.query.image);
-         setSelectedImage(router.query.image);
+        //  setSelectedImage(router.query.image);
+         setSelectedImageIndex(parseInt(router.query.image));
        }
        else {
-        setSelectedImage(imageArray[0]);
+        // setSelectedImage(imageArray[0]);
+        setSelectedImageIndex(0);
        }
      }
    }, [router.isReady]);
 
-   useEffect(() => {
-     if (selectedImage) {
-       if (router.isReady) {
-         console.log(params);
-         const copy = { ...params };
-         copy.image = selectedImage;
-         setParams({ ...copy });
-       }
-     }
-   }, [selectedImage]);
-    
+  //  useEffect(() => {
+  //    if (selectedImage) {
+  //      if (router.isReady) {
+  //        console.log(params);
+  //        const copy = { ...params };
+  //        copy.image = selectedImage;
+  //        setParams({ ...copy });
+  //      }
+  //    }
+  //  }, [selectedImage]);
+  useEffect(() => {
+    if (selectedImageIndex) {
+      if (router.isReady) {
+        console.log(params);
+        const copy = { ...params };
+        copy.image = selectedImageIndex;
+        setParams({ ...copy });
+      }
+    }
+  }, [selectedImageIndex]);  
+
   return (
     <>
       <Title></Title>
@@ -51,8 +65,10 @@ export default function SenderImageChoice({}) {
         <StepTitle number={1} label={"Pick your image"}></StepTitle>
         <ImagePicker
           imageArray={imageArray}
-          selectedImage={selectedImage}
-          setSelectedImage={setSelectedImage}
+          // selectedImage={selectedImage}
+          // setSelectedImage={setSelectedImage}
+          selectedImageIndex={selectedImageIndex}
+          setSelectedImageIndex={setSelectedImageIndex}
         ></ImagePicker>
         <ArrowContainer>
           <Arrow
@@ -62,9 +78,9 @@ export default function SenderImageChoice({}) {
               console.log(params);
               console.log(useRouter.query);
               router.push({
-                pathname: '/',
-                query: {...params}
-              })
+                pathname: "/",
+                query: { ...params },
+              });
             }}
           ></Arrow>
           <Arrow

@@ -12,7 +12,9 @@ const PdfFile = ({qr, img}) => {
           <View style={styles.qrWrapper}>
             <Image style={styles.qr} src={qr}></Image>
           </View>
-          <Image style={styles.image} src={img} />
+          <View style={styles.imageWrapper}>
+            <Image style={styles.image} src={img} />
+          </View>
         </View>
       </Page>
     </Document>
@@ -39,11 +41,17 @@ const styles = StyleSheet.create({
     // height: 200,
     display: "flex",
     flexDirection: "row",
-    alignSelf: 'center',
-    justifySelf: 'center',
+    alignSelf: "center",
+    justifySelf: "center",
     marginTop: 100,
   },
   image: {
+    // width: 300,
+    // height: 300,
+    // border: 2,
+    // borderColor: "var(--color-black)",
+  },
+  imageWrapper: {
     width: 300,
     height: 300,
     border: 2,
@@ -58,10 +66,8 @@ const styles = StyleSheet.create({
     height: 300,
     border: 2,
     borderColor: "var(--color-black)",
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
-
-
 });
