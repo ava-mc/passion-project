@@ -68,7 +68,7 @@ export default function SenderText() {
               if (message) {
                 console.log(params);
                 router.push({
-                  pathname: "/SenderResult",
+                  pathname: "/SenderModel",
                   query: { ...params },
                 });
               } else {

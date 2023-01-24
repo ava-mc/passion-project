@@ -4,7 +4,6 @@ import Image from "next/image";
 import Head from "next/head";
 import Title from "@/components/Title";
 import styles from'@/styles/ARSystem.module.css';
-// import ARTest from "@/components/ARTest";
 
 import dynamic from "next/dynamic";
 
@@ -12,8 +11,6 @@ const NoSSRARTest = dynamic(() => import("../components/ARTest"), {
   ssr: false,
 });
 
-
-// import { Image, Text, View } from "react-native";
 export default function ARSystem({}) {
 
     const router = useRouter();
@@ -35,11 +32,11 @@ export default function ARSystem({}) {
         </Head>
         <main className={styles.main}>
           <Title></Title>
-          {/* <div>
-      {params?.image && <Image className={styles.image} src={params.image} width={200} height={200} alt={'Chosen image base for image tracking.'}></Image>}
-        {params?.message && <p className={styles.text}>{params.message}</p>}
-      </div> */}
-          <NoSSRARTest message={params?.message?params.message:'Choose your message'} image={params?.image?params.image:0}></NoSSRARTest>
+          <NoSSRARTest
+            message={params?.message ? params.message : "Choose your message"}
+            model={params?.model ? params.model : 0}
+            image={params?.image ? params.image : 0}
+          ></NoSSRARTest>
         </main>
       </>
     );
