@@ -10,6 +10,7 @@ import SenderImageChoice from './pages/SenderImageChoice';
 import SenderText from './pages/SenderText';
 import SenderResult from './pages/SenderResult';
 import ARSystem from './pages/ARSystem';
+import "expo-dev-client";
 
 const Stack = createNativeStackNavigator();
 

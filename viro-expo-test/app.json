@@ -37,6 +37,11 @@
           "androidXrMode": "AR"
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "80f1a4ee-782c-4f14-b1de-5741ab1f4084"
+      }
+    }
   }
 }
