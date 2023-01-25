@@ -8,16 +8,36 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  ViroARTrackingTargets,
+  ViroARImageMarker,
+  ViroBox
 } from 'react-viro';
 
+
+ // Outside of the render function, register the target
+ViroARTrackingTargets.createTargets({
+  "target1": {
+    source: require("./res/tesla.webp"),
+    orientation: "Up",
+    physicalWidth: 0.1, // real world width in meters
+  },
+  "target2": {
+    source: require("./res/lego.png"),
+    orientation: "Up",
+    physicalWidth: 0.25, // real world width in meters
+  },
+});
+ 
+
 export default class HelloWorldSceneAR extends Component {
+  
 
   constructor() {
     super();
 
     // Set initial state here
     this.state = {
-      text : "Initializing AR..."
+      text : "This is my message."
     };
 
     // bind 'this' to functions
@@ -26,11 +46,34 @@ export default class HelloWorldSceneAR extends Component {
 
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+      <ViroARScene>
+        <ViroARImageMarker target={"target2"}>
+          <ViroBox position={[0, 0.25, 0]} scale={[0.05, 0.05, 0.05]} />
+          <ViroText
+            text={this.text}
+            textAlign="left"
+            textAlignVertical="top"
+            textLineBreakMode="justify"
+            textClipMode="clipToBounds"
+            color="#ff0000"
+            width={2}
+            height={2}
+            style={{
+              fontFamily: "Arial",
+              fontSize: 20,
+              fontWeight: 400,
+              fontStyle: "italic",
+              color: "#0000FF",
+            }}
+            position={[0, 0, -5]}
+          />
+          ;
+        </ViroARImageMarker>
       </ViroARScene>
     );
   }
+
+
 
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
