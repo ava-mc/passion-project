@@ -1166,6 +1166,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@vseslav/react-native-horizontal-picker@^0.1.1":
+  "integrity" "sha512-fwnl4NRFxZkTAdLGrxHprsGAun221Q5pMkUyXCPxOBqE1jxDUfCLhhdywT4+KKIOqEx3zfOE1ZZZw45drCcADA=="
+  "resolved" "https://registry.npmjs.org/@vseslav/react-native-horizontal-picker/-/react-native-horizontal-picker-0.1.1.tgz"
+  "version" "0.1.1"
+
 "absolute-path@^0.0.0":
   "integrity" "sha512-HQiug4c+/s3WOvEnDRxXVmNtSG5s2gJM9r19BTcqjp7BWcE48PB+Y2G6jE65kqI0LpsQeMZygt/b60Gi4KxGyA=="
   "resolved" "https://registry.npmjs.org/absolute-path/-/absolute-path-0.0.0.tgz"

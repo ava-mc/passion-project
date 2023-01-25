@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 
 import {StyleSheet} from 'react-native';
+// import MessageMenu from './MessageMenu';
 
 import MyARComponent from './MyARComponent';
 
@@ -41,6 +42,8 @@ export default class HelloWorldSceneAR extends Component {
     this.state = {
       // text : "This is my message."
       // text: this.props.message
+      // message: this.props.message,
+      // target: this.props.target,
     };
 
     // bind 'this' to functions
@@ -48,6 +51,7 @@ export default class HelloWorldSceneAR extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       // <ViroARScene>
       //   <ViroARImageMarker target={"target2"}>
@@ -73,7 +77,11 @@ export default class HelloWorldSceneAR extends Component {
       //     ;
       //   </ViroARImageMarker>
       // </ViroARScene>
-      <MyARComponent message="Does this work for even much longer text like this?"></MyARComponent>
+      <MyARComponent
+        target={this.props.arSceneNavigator.viroAppProps.target}
+        message={this.props.arSceneNavigator.viroAppProps.message}
+      ></MyARComponent>
+      // <MessageMenu></MessageMenu>
     );
   }
 

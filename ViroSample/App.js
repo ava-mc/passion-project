@@ -15,12 +15,14 @@ import {
   StyleSheet,
   PixelRatio,
   TouchableHighlight,
+  TextInput
 } from 'react-native';
 
 import {
   ViroVRSceneNavigator,
   ViroARSceneNavigator
 } from 'react-viro';
+import MessageMenu from './js/MessageMenu';
 
 /*
  TODO: Insert your API key below
@@ -46,15 +48,26 @@ export default class ViroSample extends Component {
     super();
 
     this.state = {
-      navigatorType : defaultNavigatorType,
-      sharedProps : sharedProps
-    }
+      navigatorType: defaultNavigatorType,
+      sharedProps: sharedProps,
+      message: "test",
+      target: "target2",
+    };
     this._getExperienceSelector = this._getExperienceSelector.bind(this);
     this._getARNavigator = this._getARNavigator.bind(this);
     this._getVRNavigator = this._getVRNavigator.bind(this);
-    this._getExperienceButtonOnPress = this._getExperienceButtonOnPress.bind(this);
+    this._getExperienceButtonOnPress =
+      this._getExperienceButtonOnPress.bind(this);
     this._exitViro = this._exitViro.bind(this);
   }
+  setMessage = (mess) => {
+    console.log(mess);
+    this.setState({message:mess});
+  };
+  setTarget = (tar) => {
+    console.log(tar);
+    this.setState({target:tar});
+  };
 
   // Replace this function with the contents of _getVRNavigator() or _getARNavigator()
   // if you are building a specific type of experience.
@@ -71,17 +84,20 @@ export default class ViroSample extends Component {
   // Presents the user with a choice of an AR or VR experience
   _getExperienceSelector() {
     return (
-      <View style={localStyles.outer} >
-        <View style={localStyles.inner} >
-
-          <Text style={localStyles.titleText}>
-            Mystery Mail
-          </Text>
-
-          <TouchableHighlight style={localStyles.buttons}
+      <View style={localStyles.outer}>
+        <View style={localStyles.inner}>
+          <Text style={localStyles.titleText}>Mystery Mail</Text>
+          <MessageMenu
+            message={this.state.message}
+            setMessage={this.setMessage}
+            selectedTarget={this.state.target}
+            setSelectedTarget={this.setTarget}
+          ></MessageMenu>
+          <TouchableHighlight
+            style={localStyles.buttons}
             onPress={this._getExperienceButtonOnPress(AR_NAVIGATOR_TYPE)}
-            underlayColor={'#68a0ff'} >
-
+            underlayColor={"#68a0ff"}
+          >
             <Text style={localStyles.buttonText}>Get Started</Text>
           </TouchableHighlight>
 
@@ -99,16 +115,21 @@ export default class ViroSample extends Component {
   // Returns the ViroARSceneNavigator which will start the AR experience
   _getARNavigator() {
     return (
-      <ViroARSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: InitialARScene}} />
+      <ViroARSceneNavigator
+        {...this.state.sharedProps} viroAppProps={{message:this.state.message, target:this.state.target}}
+        initialScene={{ scene: InitialARScene }}
+      />
     );
   }
-  
+
   // Returns the ViroSceneNavigator which will start the VR experience
   _getVRNavigator() {
     return (
-      <ViroVRSceneNavigator {...this.state.sharedProps}
-        initialScene={{scene: InitialVRScene}} onExitViro={this._exitViro}/>
+      <ViroVRSceneNavigator
+        {...this.state.sharedProps}
+        initialScene={{ scene: InitialVRScene }}
+        onExitViro={this._exitViro}
+      />
     );
   }
 
@@ -117,16 +138,16 @@ export default class ViroSample extends Component {
   _getExperienceButtonOnPress(navigatorType) {
     return () => {
       this.setState({
-        navigatorType : navigatorType
-      })
-    }
+        navigatorType: navigatorType,
+      });
+    };
   }
 
   // This function "exits" Viro by setting the navigatorType to UNSET.
   _exitViro() {
     this.setState({
-      navigatorType : UNSET
-    })
+      navigatorType: UNSET,
+    });
   }
 }
 

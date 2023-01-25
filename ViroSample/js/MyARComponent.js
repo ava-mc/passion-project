@@ -26,10 +26,11 @@ ViroARTrackingTargets.createTargets({
 });
 
 const MyARComponent = ({ message, target }) => {
+    console.log(target, message);
   return (
     <ViroARScene>
       <ViroAmbientLight color="#ffffff" />
-      <ViroARImageMarker target={"target2"}>
+      <ViroARImageMarker target={target}>
         <ViroBox position={[0, 0.25, 0]} scale={[0.05, 0.05, 0.05]} />
         <ViroText
           text={message}

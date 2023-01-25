@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@vseslav/react-native-horizontal-picker": "^0.1.1",
     "react": "^18.2.0",
     "react-native": "0.59.9",
     "react-viro": "2.17.0"
