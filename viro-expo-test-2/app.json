@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "viro-expo-test-2",
+    "slug": "viro-expo-test-2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "jsEngine": "hermes",
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/74452ec7-0025-455f-a242-d6077bc074c3"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.ava.mirzaee.viroexpotest2"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "@viro-community/react-viro",
+        {
+          "androidXrMode": "AR"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "74452ec7-0025-455f-a242-d6077bc074c3"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    }
+  }
+}
