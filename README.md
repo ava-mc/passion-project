@@ -43,3 +43,20 @@ Note: you will need a device that supports either ARCore or ARKit to be able to 
   
   Failed experiment of trying to implement marker tracking of AR.js directly in a new create-react-app project via A-frame library.
   
+- codebox example
+
+  This is my only working example of adding MindAR image tracking in a React project. I started from a working codesandbox example I found, that used the mindAR package in a React project. And from that starting point, I added some customisation to it. To run it, uses npm install and then npm start.
+
+  The default target image:
+  
+  <img width="727" alt="image" src="https://user-images.githubusercontent.com/91590248/215571159-1bac8ea6-3fb7-4667-b82a-65387ac0d3da.png">
+
+  You can customise it via querystring:
+  - image: 0 or 1 (0 is lego.png, 1 question.png image in the assets folder).
+  - model: 0 or 1
+  - message: any string
+
+- react-mindar-test and react-mindar-test-2
+
+  I tried recreating the Codesandbox example starting from my own new React project, however despite using the exact same versions and the exact same packages, this did not work. 
+  
