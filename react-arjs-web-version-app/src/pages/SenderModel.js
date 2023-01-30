@@ -29,7 +29,7 @@ export default function SenderModel({}) {
   }, [router.isReady]);
 
   useEffect(() => {
-    if (selectedModelIndex) {
+    if (selectedModelIndex || selectedModelIndex == 0) {
       if (router.isReady) {
         console.log(params);
         const copy = { ...params };

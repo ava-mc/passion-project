@@ -48,7 +48,7 @@ export default function SenderImageChoice({}) {
   //    }
   //  }, [selectedImage]);
   useEffect(() => {
-    if (selectedImageIndex) {
+    if (selectedImageIndex || selectedImageIndex == 0) {
       if (router.isReady) {
         console.log(params);
         const copy = { ...params };
