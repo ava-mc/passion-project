@@ -1,3 +1,12 @@
+- web-version-app
+  
+  Basic Mystery Mail demo made with Next.js. It contains all the functionalities, except the AR part. This was meant as a basic project to try to add different web AR frameworks to for the AR functionality.
+  
+  This example is running live on this [link](https://passion-project-dusky.vercel.app/).
+
+------
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
