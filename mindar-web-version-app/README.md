@@ -1,3 +1,10 @@
+- mindar-web-version-app
+
+  Unsuccessful attempt to add mindAR to my existing demo project for the Mystery Mail app in Next.js (web-version-app).
+
+
+-----
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
