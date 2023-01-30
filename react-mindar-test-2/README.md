@@ -1,3 +1,7 @@
+I tried recreating the Codesandbox example starting from my own new React project, however despite using the exact same versions and the exact same packages, this did not work. 
+
+-----
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
