@@ -1,3 +1,21 @@
+- react-ar-js-web-version-app
+
+  Successful attempt of adding AR.js image tracking functionalities to my existing Mystery Mail web application, made with Next.js. To run it, do npm install, then npm run dev to test the full app. (You can also do npm start, however, I added a server.js file that redirects my http localhost to a https, so that I could test it easily with my phone. I did this before I realised I could easily forward my ports if my phone was connected to my computer via USB.)
+  
+  There is also a [live demo](https://passion-project-y4sr.vercel.app/) version of this:
+  
+  <img width="254" alt="image" src="https://user-images.githubusercontent.com/91590248/215576037-283e07b3-7b14-4409-a6fd-b03d494ea0be.png">
+  
+  The idea is that you create your post card first, this will create a pdf you can save and/or print out with your secret AR message, contained in a scannable QR code, and with the chosen target image on the front of your card.
+
+  If you just want to scan an already made example, try this one:
+  
+  <img width="710" alt="image" src="https://user-images.githubusercontent.com/91590248/215576117-41e093b8-1e69-4ff3-aba3-1d1bf2812982.png">
+  
+  
+-----
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
