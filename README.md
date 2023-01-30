@@ -108,7 +108,27 @@ Note: you will need a device that supports either ARCore or ARKit to be able to 
   
   <img width="710" alt="image" src="https://user-images.githubusercontent.com/91590248/215576117-41e093b8-1e69-4ff3-aba3-1d1bf2812982.png">
 
+- test-arjs-html
 
+  Unsuccessful attempt to use the nft image tracking demo of AR.js in a plain html file.
+  
+- tracking-images
+
+  Folder that contains some base images to create custom markers with to use in combination with the AR.js [marker generator](https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html).
+
+- unity-experiment
+
+  Files from my Unity AR Foundation demo. I made an AR project for Android (ARCore), following this [youtube tutorial](https://www.youtube.com/watch?v=gpaq5bAjya8). I just combined the Unity project folder with the standard unity .gitignore file. 
+  
+- viro-expo-test and viro-expo-test-2
+
+  Failed attempst to get ViroReact working withing existing Expo projects. viro-expo-test was an attempt to integrate ViroReact in my full Mystery Mail native demo (native-version-app). viro-expo-test-2 was an attempt to integrate it in a brand new expo project. Both times I tried to follow the [explanation](https://viro-community.readme.io/docs/integrating-with-expo) from the ViroReact documentation to add ViroReact to an Expo project and both attempts failed.
+  
+- web-version-app
+  
+  Basic Mystery Mail demo made with Next.js. It contains all the functionalities, except the AR part. This was meant as a basic project to try to add different web AR frameworks to for the AR functionality.
+  
+  This example is running live on this [link](https://passion-project-dusky.vercel.app/).
   
   
 
