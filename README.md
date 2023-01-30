@@ -60,3 +60,8 @@ Note: you will need a device that supports either ARCore or ARKit to be able to 
 
   I tried recreating the Codesandbox example starting from my own new React project, however despite using the exact same versions and the exact same packages, this did not work. 
   
+- first-expo-app
+
+Very first experiment with Expo to learn React Native Basics. I just followed the [basic tutorial](https://docs.expo.dev/tutorial/introduction/) from the Expo documentation. It is a sub-module, but really does not contain any relevant code for the rest of the project.
+
+
