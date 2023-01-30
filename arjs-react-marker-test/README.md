@@ -1,3 +1,10 @@
+- arjs-react-marker-test
+  
+  Failed experiment of trying to implement marker tracking of AR.js directly in a new create-react-app project via A-frame library.
+
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
