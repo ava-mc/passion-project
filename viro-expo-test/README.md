@@ -1,0 +1,1 @@
+Failed attempst to get ViroReact working withing existing Expo projects. viro-expo-test was an attempt to integrate ViroReact in my full Mystery Mail native demo (native-version-app). I tried to follow the [explanation](https://viro-community.readme.io/docs/integrating-with-expo) from the ViroReact documentation to add ViroReact to an Expo project and it failed.
