@@ -45,7 +45,7 @@ Note: you will need a device that supports either ARCore or ARKit to be able to 
   
 - codebox-example
 
-  This is my only working example of adding MindAR image tracking in a React project. I started from a working [codesandbox example](https://codesandbox.io/s/mind-ar-react-tt9wgq?file=/src/App.js) I found, that used the mindAR package in a React project. And from that starting point, I added some customisation to it. To run it, uses npm install and then npm start.
+  This is my only working example of adding MindAR image tracking in a React project. I started from a working [codesandbox example](https://codesandbox.io/s/mind-ar-react-tt9wgq?file=/src/App.js) I found, that used the mindAR package in a React project. And from that starting point, I added some customisation to it. To run it, use npm install and then npm start.
 
   The default target image:
   
