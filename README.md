@@ -39,3 +39,7 @@ Note: you will need a device that supports either ARCore or ARKit to be able to 
   
   The index-nft.html contains the attempt to get the nft image tracking option from Ar.js to work, but this didn't work for me.
   
+- arjs-react-marker-test
+  
+  Failed experiment of trying to implement marker tracking of AR.js directly in a new create-react-app project via A-frame library.
+  
